@@ -1,4 +1,4 @@
-#### Football-Match-Outcome-Prediction
+# Football-Match-Outcome-Prediction
 
 ## Milestone 1 EDA
 After Data Cleaning and the import of all the files the data set has the following 14 features:
@@ -21,24 +21,24 @@ The first step involves getting a big picture about which feature seems to be re
 How to do that?
 Let's split the dataset by the sigle outcome(HomeWin,AwayWin and Draw) and see if there is any significant difference in the features.
 
-# Capacity
+### Capacity
 As the boxplots show Capacity is not indipendent from the Outcome.Infact the mean is different in each group.
 It looks that the more the stadium is bigger more likely the home will win.
 Probably is due to the fact that the number of supporter is higher
 
-# Elo
+### Elo
 Needless to say if a team is stronger than other has a higher probability to win.But how to demostrate that?
 I built a column called EloDiff which contains the difference between EloHome and EloAway.
 It turns out that in HomeWin the EloDiff is skewed toward positive values(EloHome is higher than EloHome ) same for AwayWin but toward negative values
 For drawa as we expected the values are around zero(Similar Elo lead to draw)
 
-# Season
+### Season
 The plot in the notebook shows that the distribuition of wins change a little by year so it is a relevant factor in take in account
 
-# League
+### League
 The plot in the notebook shows that the distribuition of wins change a little by league so it is a relevant factor in take in account
 
-# Pitch
+### Pitch
 More than 95% of matches belong to grass so it is not going to be a relevant feature
 
 ## Milestone 2 First baseline score
