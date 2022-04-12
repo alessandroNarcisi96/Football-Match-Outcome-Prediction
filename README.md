@@ -1,5 +1,30 @@
 # Football-Match-Outcome-Prediction
 
+## Milestone 0 Data cleaning and data preparation
+The data are spread among several files so first of all we need to import them and create one dataset.
+The first problem to address is to define the outcome of the match as we have only the result espressed in a string like that "score hometeam - score away team"
+The function is parseResult on charge to parse the result and it returns 0 if the winner is the hometeam,1 if the winner is the awayteam and 2 in case of draw.
+As a result there is a column more called OutCome.
+If a row lacks of the result it cannot be used so it is simply dropped from the dataset.
+
+### Overall Comments
+One thing to note immediately is that the dataset in quite balanced.This a good news to classify the outcome properly.
+
+### Capacity
+The column Capacity contains dirty data like 32,500.In order to clean them lest's replace ',' with ''
+Since there are a lot of outliers to fill the null values there will be used the median.
+
+### Pitch
+This column has many values to express the same one.In the notebook is chosen a value and the other ones are replaced
+Since it is a categorical value and more than 95% of values are natural the null values are replaces by the mode
+
+### Other null values
+Elo: 8% of Elo values are null.Since it is quite important instead of infer a value from the other ones I decided to drop this rows directly
+
+Cards: more than 70% are null in the dataset.As the plot drawn by missingno shows the missing values are randomly.
+    Since the present values belong to different teams over the Seasons a could choice could replace the null values with a neutral one like zero
+
+
 ## Milestone 1 EDA
 After Data Cleaning and the import of all the files the data set has the following 14 features:
  0   Home_Team     
@@ -73,7 +98,7 @@ A solution could be adding new features and this leads to the next Milestone
 ## Milestone 3 Feature Engineering
 Let's try to figure out what could be a relevant feature to add by checkig the most importance features in the dataset.
 By applying the random forest model we can draw easily a plot to see that.
-
+I
 It turns out that ELO is the most important features.
 It suggests that the information about the team perfomance are more important than general information as Capacity o League
 
@@ -109,3 +134,7 @@ Accuracy: 0.530 (0.007)
 
 ## Milestone 5 Conclusion
 
+The final result is quite better than a random classifier.
+It turns out that the more we get data about the team along the season the more we will be able to predict its performance.
+Another important factor to point out is the Capacity of the Statium.Probably the supporters can affect the result of a match more than we can imagine.
+This could be a good point to take into account if a coach wants to improve the performance of his team.
