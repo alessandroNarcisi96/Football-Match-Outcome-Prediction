@@ -88,7 +88,7 @@ It suggests that the model is too sensitive to the homewin(first column) and as 
  20500  6705   597
  25342  4245   673
 
-
+| Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
 | 44681         | 4200          | 952   |
 | 20500         | 6705          |   597 |
