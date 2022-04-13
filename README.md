@@ -88,6 +88,12 @@ It suggests that the model is too sensitive to the homewin(first column) and as 
  20500  6705   597
  25342  4245   673
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 Accuracy: 0.4824968719588489
 Precision: 0.4824968719588489
 Recall: 0.4824968719588489
