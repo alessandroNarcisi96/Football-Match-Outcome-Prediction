@@ -84,9 +84,9 @@ It suggests that the model is too sensitive to the homewin(first column) and as 
 
  By checking the confusion matrix on the training set and the metrix it turns out that there is not any overfitting
 
- [[44681  4200   952]
- [20500  6705   597]
- [25342  4245   673]]
+ 44681  4200   952
+ 20500  6705   597
+ 25342  4245   673
 
 Accuracy: 0.4824968719588489
 Precision: 0.4824968719588489
