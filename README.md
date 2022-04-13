@@ -71,9 +71,12 @@ Let's train a simple model like Logistic Regression in order to see what is our 
 The accuracy is 0.48 and it is already a good result as a random classifier performs at 0.33 on 3 outcome to predict.
 
 The confusion matrix is the following:
-[[11094  1047   240]
- [ 5122  1699   141]
- [ 6352  1111   168]]
+
+|               |               |       |
+| ------------- |:-------------:| -----:|
+| 11094         | 1047          | 240   |
+| 5122          | 1699          |   141 |
+| 6352          | 1111          |   168 |
 
 And the metrix these ones:
 Accuracy: 0.48049974049084304
