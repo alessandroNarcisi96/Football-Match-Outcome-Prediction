@@ -84,11 +84,9 @@ It suggests that the model is too sensitive to the homewin(first column) and as 
 
  By checking the confusion matrix on the training set and the metrix it turns out that there is not any overfitting
 
- 44681  4200   952
- 20500  6705   597
- 25342  4245   673
 
-| Tables        | Are           | Cool  |
+
+|               |               |       |
 | ------------- |:-------------:| -----:|
 | 44681         | 4200          | 952   |
 | 20500         | 6705          |   597 |
