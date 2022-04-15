@@ -164,6 +164,7 @@ It allows to the model to check if a team is more aggressive than another one an
 
 Ok now let's apply the random forest again.
 As the plot show the new features have a high score.
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/FeatureImportance.png)
 
 ## Milestone 4 Training the model
 
