@@ -1,6 +1,17 @@
 # Football-Match-Outcome-Prediction
 
-## Milestone 0 Data cleaning and data preparation
+## Introduction
+This project was given to me by one of the AiCore instructor Iván Ying Xuan as part of a personal project for the Data Science pathway.
+The discussed project is about Football Match Outcome Prediction, where the analyst processes a large number of files that contain information about football matches that have taken place since 1990.
+The main challenge is that it is a multiclassification problem for data collected in 30 years.
+That makes more difficult to predict the outcome of a match because the style of the game has changed a lot along the time.
+The data has to be cleaned so it can be fed to the model. Then, different models are trained with the dataset, and the best performing model is selected. 
+The hyperparameters of this model are tuned, so its performance has improved.
+
+The goal of this project is getting confidence with the ML flow and improving the skills in the following areas:Data Wrangling,Data Visualization,Feature Engineering,Feature Selection,Data Modeling and Evaluation.
+It requires also knowledge of AWS in particular RDS to upload the dataset on the cloud.
+
+## Milestone 0 Data cleaning and Data preparation
 The data are spread among several files so first of all we need to import them and create one dataset.
 The first problem to address is to define the outcome of the match as we have only the result espressed in a string like that "score hometeam - score away team"
 The function is parseResult on charge to parse the result and it returns 0 if the winner is the hometeam,1 if the winner is the awayteam and 2 in case of draw.
@@ -124,6 +135,7 @@ As the plot show the new features have a high score.
 
 It seems that there is need a more complex model as well.
 A good attempt could be the AdaBoost as it is shared in part the same logic of Random Forest:Information Gain.
+In addition it turns out that it performs pretty well in case of multiclassification problem(https://scikit-learn.org/stable/auto_examples/ensemble/plot_adaboost_multiclass.html)
 
 The score are better now:
 Accuracy: 0.5156446948913769
@@ -138,6 +150,18 @@ So maybe by taking into account only the most recent matches we could get a bett
 
 Since the dataset is smaller we'are going to apply KFold in order to get a more reliable score:
 Accuracy: 0.530 (0.007)
+
+## Milestone 5 Tuning the model
+The most important Adaboost hyperparameters are 3.
+They are :base_estimator,n_estimators,learning_rate.
+In this notebook we are going to tune just n_estimators and learning_rate.
+What do they represent?
+Basically n_estimators represents the number of weak learners that the algorithm is going the use.In this case they will stump.
+Learning rate is the Weight applied to each classifier at each boosting iteration.It is quite important to take in account these hyperparameters together because more trees may require a smaller learning rate; fewer trees may require a larger learning rate and it prevents overfitting.
+The default base_estimator is the decision tree and the feature importance is based on random forest so it is already a good choice.
+
+We are going to use GridSearchCV with RepeatedStratifiedKFold rather KFold to make sure that the proportion of HomeWin,AwayWin and Draw will be the same.
+It turns out that the best combination is learning_rate': 0.1, 'n_estimators': 500 with an accuracy of 0.5384
 
 ## Milestone 5 Conclusion
 
