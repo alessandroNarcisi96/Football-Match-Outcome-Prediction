@@ -15,7 +15,6 @@ The data has to be cleaned so it can be fed to the model. Then, different models
 The hyperparameters of this model are tuned, so its performance has improved.
 
 
-
 ## Milestone 0 Data cleaning and Data preparation
 The data are spread among several files so first of all we need to import them and create one dataset.
 The first problem to address is to define the outcome of the match as we have only the result espressed in a string like that "score hometeam - score away team"
@@ -27,7 +26,7 @@ If a row lacks of the result it cannot be used so it is simply dropped from the 
 One thing to note immediately is that the dataset in quite balanced.This a good news to classify the outcome properly.
 
 ### Capacity
-The column Capacity contains dirty data like 32,500.In order to clean them lest's replace ',' with ''
+The column Capacity contains dirty data like 32,500.In order to clean them lest's replace ',' with ''.
 Since there are a lot of outliers to fill the null values there will be used the median.
 
 ### Pitch
@@ -38,7 +37,9 @@ Since it is a categorical value and more than 95% of values are natural the null
 Elo: 8% of Elo values are null.Since it is quite important instead of infer a value from the other ones I decided to drop this rows directly
 
 Cards: more than 70% are null in the dataset.As the plot drawn by missingno shows the missing values are randomly.
-    Since the present values belong to different teams over the Seasons a could choice could replace the null values with a neutral one like zero
+    Since the present values belong to different teams over the Seasons a could choice could replace the null values with a neutral one like zero.
+
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/nullValues.PNG)
 
 
 ## Milestone 1 EDA
@@ -71,7 +72,8 @@ Probably is due to the fact that the number of supporter is higher
 Needless to say if a team is stronger than other has a higher probability to win.But how to demostrate that?
 I built a column called EloDiff which contains the difference between EloHome and EloAway.
 It turns out that in HomeWin the EloDiff is skewed toward positive values(EloHome is higher than EloHome ) same for AwayWin but toward negative values
-For drawa as we expected the values are around zero(Similar Elo lead to draw)
+For draws as we expected the values are around zero(Similar Elo lead to draw)
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/eloDiff.PNG)
 
 ### Season
 The plot in the notebook shows that the distribuition of wins change a little by year so it is a relevant factor in take in account
@@ -131,11 +133,8 @@ How to do that?
 The ideal complexity would be O(n) where n is the number of rows in the dataset.
 Let's see the logic behind the number of goals done so far as it will be the same for the other features.
 Basically the number of goals done so far for each Team follows this recursive rule:
-![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/Cattura.PNG)
-Gi = {
-        Gi-1 + gi i>0
-        gi        i=0
-}
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/formula.PNG)
+
 
 Where Gi is the amount goals done till the i match and gi are the goals done in the i-match
 So basically Gi is the sum between the goals done till the i-1 match and gi
@@ -148,12 +147,8 @@ A dictionary will work fine.
 What insert into the values?
 Simply an object with all the information that we have to update.
 In the project I created a class like that:
-class Team:
-  def __init__(self, goalScored, goalCollected, redCards, yellowCards):
-    self.goalScored = goalScored
-    self.goalCollected = goalCollected
-    self.redCards = redCards
-    self.yellowCards = yellowCards
+
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/TeamClass.PNG)
 
 So basically each entry of the dictionary contains an object with these attributes.
 When the algorithm reads a new row in the dataset it uses the team name as a key and it simply updates for example goalScored by using this formula:
