@@ -121,11 +121,44 @@ A solution could be adding new features and this leads to the next Milestone
 ## Milestone 3 Feature Engineering
 Let's try to figure out what could be a relevant feature to add by checkig the most importance features in the dataset.
 By applying the random forest model we can draw easily a plot to see that.
-I
 It turns out that ELO is the most important features.
 It suggests that the information about the team perfomance are more important than general information as Capacity o League
 
 Let's try to take into account the amount of goal for each Season of each Team as well as red or yellow cards.
+
+### Algorithm
+How to do that?
+The ideal complexity would be O(n) where n is the number of rows in the dataset.
+Let's see the logic behind the number of goals done so far as it will be the same for the other features.
+Basically the number of goals done so far for each Team follows this recursive rule:
+Gi = {
+        Gi-1 + gi i>0
+        gi        i=0
+}
+
+Where Gi is the amount goals done till the i match and gi are the goals done in the i-match
+So basically Gi is the sum between the goals done till the i-1 match and gi
+
+Let's create an algorithm based on dynamic programming.
+First all we have to think to the right data structure.
+
+Taking into account that we have to compute the data for each team we need to get the information by team.
+A dictionary will work fine.
+What insert into the values?
+Simply an object with all the information that we have to update.
+In the project I created a class like that:
+class Team:
+  def __init__(self, goalScored, goalCollected, redCards, yellowCards):
+    self.goalScored = goalScored
+    self.goalCollected = goalCollected
+    self.redCards = redCards
+    self.yellowCards = yellowCards
+
+So basically each entry of the dictionary contains an object with these attributes.
+When the algorithm reads a new row in the dataset it uses the team name as a key and it simply updates for example goalScored by using this formula:
+goalScored = goalScored + goalScoredInThisMatch
+
+When the Season is over all the values in the dictionary are canceled.
 
 Now each match has 8 colums more:
 Goal_Scored_HomeTeam,Goal_Collected_HomeTeam,Yellow_Collected_HomeTeam,Red_Collected_HomeTeam
@@ -168,7 +201,7 @@ The default base_estimator is the decision tree and the feature importance is ba
 We are going to use GridSearchCV with RepeatedStratifiedKFold rather KFold to make sure that the proportion of HomeWin,AwayWin and Draw will be the same.
 It turns out that the best combination is learning_rate': 0.1, 'n_estimators': 500 with an accuracy of 0.5384
 
-## Milestone 5 Conclusion
+## Milestone 6 Conclusion
 
 The final result is quite better than a random classifier.
 It turns out that the more we get data about the team along the season the more we will be able to predict its performance.
