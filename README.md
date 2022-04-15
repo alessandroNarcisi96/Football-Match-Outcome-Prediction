@@ -1,15 +1,20 @@
 # Football-Match-Outcome-Prediction
 
 ## Introduction
+
+### Learning Goal
 This project was given to me by one of the AiCore instructor Iván Ying Xuan as part of a personal project for the Data Science pathway.
 The discussed project is about Football Match Outcome Prediction, where the analyst processes a large number of files that contain information about football matches that have taken place since 1990.
+The goal of this project is getting confidence with the ML flow and improving the skills in the following areas:Data Wrangling,Data Visualization,Feature Engineering,Feature Selection,Data Modeling and Evaluation.
+It requires also knowledge of AWS in particular RDS to upload the dataset on the cloud.
+
+### The Challenge
 The main challenge is that it is a multiclassification problem for data collected in 30 years.
 That makes more difficult to predict the outcome of a match because the style of the game has changed a lot along the time.
 The data has to be cleaned so it can be fed to the model. Then, different models are trained with the dataset, and the best performing model is selected. 
 The hyperparameters of this model are tuned, so its performance has improved.
 
-The goal of this project is getting confidence with the ML flow and improving the skills in the following areas:Data Wrangling,Data Visualization,Feature Engineering,Feature Selection,Data Modeling and Evaluation.
-It requires also knowledge of AWS in particular RDS to upload the dataset on the cloud.
+
 
 ## Milestone 0 Data cleaning and Data preparation
 The data are spread among several files so first of all we need to import them and create one dataset.
