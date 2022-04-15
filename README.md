@@ -39,7 +39,7 @@ Elo: 8% of Elo values are null.Since it is quite important instead of infer a va
 Cards: more than 70% are null in the dataset.As the plot drawn by missingno shows the missing values are randomly.
     Since the present values belong to different teams over the Seasons a could choice could replace the null values with a neutral one like zero.
 
-![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/nullValues.PNG)
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/NullValues.PNG)
 
 
 ## Milestone 1 EDA
@@ -73,7 +73,7 @@ Needless to say if a team is stronger than other has a higher probability to win
 I built a column called EloDiff which contains the difference between EloHome and EloAway.
 It turns out that in HomeWin the EloDiff is skewed toward positive values(EloHome is higher than EloHome ) same for AwayWin but toward negative values
 For draws as we expected the values are around zero(Similar Elo lead to draw)
-![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/eloDiff.PNG)
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/EloDiff.PNG)
 
 ### Season
 The plot in the notebook shows that the distribuition of wins change a little by year so it is a relevant factor in take in account
@@ -133,7 +133,7 @@ How to do that?
 The ideal complexity would be O(n) where n is the number of rows in the dataset.
 Let's see the logic behind the number of goals done so far as it will be the same for the other features.
 Basically the number of goals done so far for each Team follows this recursive rule:
-![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/formula.PNG)
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/Formula.PNG)
 
 
 Where Gi is the amount goals done till the i match and gi are the goals done in the i-match
