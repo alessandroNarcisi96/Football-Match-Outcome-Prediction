@@ -39,7 +39,7 @@ Elo: 8% of Elo values are null.Since it is quite important instead of infer a va
 Cards: more than 70% are null in the dataset.As the plot drawn by missingno shows the missing values are randomly.
     Since the present values belong to different teams over the Seasons a could choice could replace the null values with a neutral one like zero.
 
-![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/NullValues.PNG)
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/NullValues.png)
 
 
 ## Milestone 1 EDA
@@ -73,7 +73,7 @@ Needless to say if a team is stronger than other has a higher probability to win
 I built a column called EloDiff which contains the difference between EloHome and EloAway.
 It turns out that in HomeWin the EloDiff is skewed toward positive values(EloHome is higher than EloHome ) same for AwayWin but toward negative values
 For draws as we expected the values are around zero(Similar Elo lead to draw)
-![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/EloDiff.PNG)
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/EloDiff.png)
 
 ### Season
 The plot in the notebook shows that the distribuition of wins change a little by year so it is a relevant factor in take in account
