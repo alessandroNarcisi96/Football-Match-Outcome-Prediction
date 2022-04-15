@@ -133,7 +133,7 @@ How to do that?
 The ideal complexity would be O(n) where n is the number of rows in the dataset.
 Let's see the logic behind the number of goals done so far as it will be the same for the other features.
 Basically the number of goals done so far for each Team follows this recursive rule:
-![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/Formula.PNG)
+![alt text](https://github.com/alessandroNarcisi96/Football-Match-Outcome-Prediction/blob/develop/Images/Formula2.PNG)
 
 
 Where Gi is the amount goals done till the i match and gi are the goals done in the i-match
